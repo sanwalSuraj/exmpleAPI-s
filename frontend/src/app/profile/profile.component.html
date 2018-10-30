@@ -1,0 +1,332 @@
+ <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Dashboard</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Account Setting</li>
+                            </ol>
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card"> <img class="card-img" src="../assets/images/background/socialbg.jpg" height="456" alt="Card image">
+                            <div class="card-img-overlay card-inverse text-white social-profile d-flex justify-content-center">
+                                <div class="align-self-center"> <img src="../assets/images/users/1.jpg" class="img-circle" width="100">
+                                    <h4 class="card-title">{{this.LoggedUser.firstName}} {{this.LoggedUser.lastName}}</h4>
+                                    <h6 class="card-subtitle">@{{this.LoggedUser.firstName}}</h6>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body"> <small class="text-muted">Email address </small>
+                                <h6>{{this.LoggedUser.email}}</h6> <small class="text-muted p-t-30 db">Phone</small>
+                                <h6>{{this.LoggedUser.phoneHome}}</h6> <small class="text-muted p-t-30 db">Address</small>
+                                <h6>{{this.LoggedUser.address}}</h6>
+                               <!--  <div class="map-box">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>  --><!-- <small class="text-muted p-t-30 db">Social Profile</small> -->
+                                <br/>
+                                <!-- <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube"></i></button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">
+                                
+                                <li class="nav-item"> <a class="nav-link " [ngClass]="{'active': (tab==1)}"  data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
+                                <li class="nav-item"> <a class="nav-link" [ngClass]="{'active': (tab==2)}"  data-toggle="tab" href="#settings" role="tab">Change Password</a> </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                               
+                                <div class="tab-pane " [ngClass]="{'active': (tab==1)}"  id="profile" role="tabpanel">
+                                    <div class="card-body">
+                                        <form #mainForm="ngForm" id="staff-form" novalidate class="form-control-line m-t-40">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>First Name * </label>
+                                        <input type="text" class="form-control form-control-line " [(ngModel)]="item.firstName" pattern="[a-zA-Z][a-zA-Z ]+" name="firstName"
+                                  #firstNameVl="ngModel" required minlength="3"   maxlength="100"> </div>
+                                
+                                <div *ngIf="firstNameVl.invalid && (firstNameVl.dirty || firstNameVl.touched)" class="text-danger">
+                                  <p *ngIf="firstNameVl.errors.required">First Name is required.</p>
+                                  <p *ngIf="firstNameVl.errors.minlength">Minimum of 3 characters</p>
+                                  <p *ngIf="firstNameVl.errors.maxlength">Maximum of 70 characters</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Last Name * </label>
+                                        <input type="text" class="form-control form-control-line " [(ngModel)]="item.lastName" pattern="[a-zA-Z][a-zA-Z ]+" name="lastName"
+                                  #lastNameVl="ngModel" required minlength="3"   maxlength="100"> </div>
+                                
+                                <div *ngIf="lastNameVl.invalid && (lastNameVl.dirty || lastNameVl.touched)" class="text-danger">
+                                  <p *ngIf="lastNameVl.errors.required">Last Name is required.</p>
+                                  <p *ngIf="lastNameVl.errors.minlength">Minimum of 3 characters</p>
+                                  <p *ngIf="lastNameVl.errors.maxlength">Maximum of 70 characters</p>
+                                </div>
+                            </div>
+
+                            
+
+                           
+                        </div>
+                       
+
+                         <div class="row">
+                            
+
+                             <div class="col-md-12">
+                                 <label>Address * </label>
+
+                                        <ng4geo-autocomplete  [userSettings]="userSettings"   (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+                                
+                            </div>
+                            
+                           
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>City  </label>
+                                        <input type="text" class="form-control form-control-line " disabled [(ngModel)]="item.city"  name="city"
+                                  #cityVl="ngModel"  minlength="3"   maxlength="100"> </div>
+                                
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>State</label>
+                                        <input type="text" class="form-control form-control-line " disabled [(ngModel)]="item.state" name="state"
+                                  #stateVl="ngModel"  minlength="3"   maxlength="100"> </div>
+                                
+                                
+                            </div>
+
+                            
+
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Postal Code  </label>
+                                        <input type="text" class="form-control form-control-line " disabled [(ngModel)]="item.postalCode"  name="postalCode"
+                                  #postalCodeVl="ngModel"  minlength="3"  > </div>
+                                
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Home Phone</label>
+                                        <input type="text" class="form-control form-control-line " [(ngModel)]="item.phoneHome" name="phoneHome"
+                                  #phoneHomeVl="ngModel" dropSpecialCharacters="false" mask="(999) 999-9999"  minlength="14"   > </div>
+                                
+                                <div *ngIf="phoneHomeVl.invalid && (phoneHomeVl.dirty || phoneHomeVl.touched)" class="text-danger">
+                                  <p *ngIf="phoneHomeVl.errors.minlength">Work Phone must be minimum 10 characters.</p>
+                                 </div>
+                            </div>
+
+                            
+
+                           
+                        </div>
+
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Mobile Phone </label>
+                                        <input type="text" class="form-control form-control-line " [(ngModel)]="item.phoneMobile"  name="phoneMobile"
+                                  #phoneMobileVl="ngModel" dropSpecialCharacters="false" mask="(999) 999-9999" minlength="14"    > </div>
+                                <div *ngIf="phoneMobileVl.invalid && (phoneMobileVl.dirty || phoneMobileVl.touched)" class="text-danger">
+                                  <p *ngIf="phoneMobileVl.errors.minlength">Mobile Phone be minimum 10 characters.</p>
+                                 
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Work Phone</label>
+                                        <input type="text" class="form-control form-control-line " [(ngModel)]="item.phoneWork" name="phoneWork"
+                                  #phoneWorkVl="ngModel" dropSpecialCharacters="false" mask="(999) 999-9999" minlength="14"   > </div>
+                                
+                                <div *ngIf="phoneWorkVl.invalid && (phoneWorkVl.dirty || phoneWorkVl.touched)" class="text-danger">
+                                  <p *ngIf="phoneWorkVl.errors.minlength">Work Phone must be minimum 10 characters.</p>
+                                   </div>
+                            </div>
+
+                            
+
+                           
+                        </div>
+
+                      
+
+
+                        <div class="form-actions"> 
+                                       
+                                    <a class="btn waves-effect waves-light btn-success" [ngClass]="{'disabled': !mainForm.valid}"  form="client-form" (click)="updateItem()">Update</a>
+
+                                    
+                     
+                          </div>
+
+                        <div class="clear">
+                        </div>
+                    </form>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="settings" [ngClass]="{'active': (tab==2)}"  role="tabpanel">
+                                    <div class="card-body">
+                                        <form class="form-horizontal form-material">
+                                            
+                                             <div class="row" >
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                            <label>Password *</label>
+                                                            <input id="password" type="password" class="form-control form-control-line" name="password"
+                                                      [(ngModel)]="item.password" #password="ngModel" minlength="6" [required]="!isEditable"> </div>
+                                                    
+                                                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                                      <p *ngIf="password.errors.required">Password is required.</p>
+                                                      <p *ngIf="password.errors.minlength">Password must be minimum 6 characters.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                 <div class="col-md-12">
+                                                    
+                                                     <div class="input-field col s6">
+                                                      <label for="password">Confirm Password *</label>
+                                                    <input id="confirm_password" type="password" class="form-control form-control-line" name="confirmPassword"
+                                                      [(ngModel)]="confirmPassword" #confirmPass="ngModel" [equalTo]="password">
+                                                    
+                                                </div>
+                                                 <div *ngIf="confirmPass.invalid && (confirmPass.dirty || confirmPass.touched)" class="text-danger">
+                                                      <p *ngIf="confirmPass.errors.equalTo">Password doesn't match.</p>
+                                                    </div>
+                                                </div>
+
+                                               
+                                             </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Update Password</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar">
+                    <div class="slimscrollright">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                        <div class="r-panel-body">
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-default" class="default-theme working">1</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-red" class="red-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-blue" class="blue-theme">4</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-megna" class="megna-theme">6</a></li>
+                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-default-dark" class="default-dark-theme ">7</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-green-dark" class="green-dark-theme">8</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-red-dark" class="red-dark-theme">9</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-blue-dark" class="blue-dark-theme">10</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-purple-dark" class="purple-dark-theme">11</a></li>
+                                <li><a href="javascript:void(0)" data-skin="skin-megna-dark" class="megna-dark-theme ">12</a></li>
+                            </ul>
+                            <ul class="m-t-20 chatonline">
+                                <li><b>Chat option</b></li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->

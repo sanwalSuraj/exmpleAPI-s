@@ -1,0 +1,3 @@
+#side-menu > li > a:hover, #side-menu > li > a:focus {
+    background: rgba(0, 0, 0, 0.03);
+}
